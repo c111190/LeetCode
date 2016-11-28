@@ -11,6 +11,35 @@ class Solution(object):
         :type x: int
         :rtype: bool
         """
+        
+        if x < 0:
+            return False
+            
+        count = 0
+        temp = x
+        while(temp>0):
+            temp = temp/ 10
+            count += 1
+        
+        for i in range(count-1, 0, -2):
+
+            
+            if x%10 != int(x/math.pow(10, i)):
+                return False
+         
+            x =int ( x%math.pow(10, i)/10)
+        return True
+
+'''
+I didn't notice that it wrote that "Do this without extra space."
+So I try another way.
+
+class Solution(object):
+    def isPalindrome(self, x):
+        """
+        :type x: int
+        :rtype: bool
+        """
         if x < 0:
             return False
             
@@ -26,3 +55,4 @@ class Solution(object):
                 return False
  
         return True
+'''
